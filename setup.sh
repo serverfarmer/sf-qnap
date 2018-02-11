@@ -24,7 +24,7 @@ mkdir -p $path
 
 if [ ! -f $path/startup.sh ]; then
 	echo "copying QPKG support files"
-	cp -af /opt/farm/ext/qnap/qpkg/* $path
+	cp -af /opt/farm/ext/qnap/qpkg/startup.sh /opt/farm/ext/qnap/qpkg/.*.gif $path
 fi
 
 if [ -f /etc/config/qpkg.conf ]; then
