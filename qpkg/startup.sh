@@ -6,8 +6,13 @@ for F in ipkg git nc mc mcedit sudo; do
 	fi
 done
 
-if [ -d /etc/config/.gnupg ] && [ ! -d /root/.gnupg ]; then
-	ln -s /etc/config/.gnupg /root/.gnupg
+if [ -d /etc/config/.gnupg ]; then
+	rm -rf /share/homes/admin/.gnupg
+	ln -sf /etc/config/.gnupg /share/homes/admin/.gnupg
+
+	if [ ! -d /root/.gnupg ]; then
+		ln -s /etc/config/.gnupg /root/.gnupg
+	fi
 fi
 
 if [ -f /etc/config/farmconfig ] && [ ! -f /etc/farmconfig ]; then
