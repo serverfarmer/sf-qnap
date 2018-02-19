@@ -10,9 +10,13 @@ if [ -d /etc/config/.gnupg ]; then
 	rm -rf /share/homes/admin/.gnupg
 	ln -sf /etc/config/.gnupg /share/homes/admin/.gnupg
 
-	if [ ! -d /root/.gnupg ]; then
+	if [ ! -d /root/.gnupg ] && [ ! -h /root/.gnupg ]; then
 		ln -s /etc/config/.gnupg /root/.gnupg
 	fi
+fi
+
+if [ ! -d /root/.ssh ] && [ ! -h /root/.ssh ]; then
+	ln -s /etc/config/ssh /root/.ssh
 fi
 
 if [ -f /etc/config/farmconfig ] && [ ! -f /etc/farmconfig ]; then
