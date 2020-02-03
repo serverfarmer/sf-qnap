@@ -23,9 +23,8 @@ if [ -f /etc/config/farmconfig ] && [ ! -f /etc/farmconfig ]; then
 	ln -s /etc/config/farmconfig /etc/farmconfig
 fi
 
-if [ -f /opt/farm/scripts/functions.custom ]; then
-	. /opt/farm/scripts/functions.custom
-	path=`local_backup_directory`
+if [ -x /opt/farm/config/get-local-backup-directory.sh ]; then
+	path=`/opt/farm/config/get-local-backup-directory.sh`
 	if [ ! -h $path ]; then
 		if [ -d /share/HDA_DATA/.qpkg/ServerFarmer/backup ]; then
 			ln -s /share/HDA_DATA/.qpkg/ServerFarmer/backup $path
