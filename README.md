@@ -1,1 +1,3 @@
-sf-qnap extension provides QNAP devices specific logic.
+## Deprecated
+
+This repository contains old, deprecated extension to Server Farmer.
